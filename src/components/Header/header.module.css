@@ -1,0 +1,42 @@
+.header {
+  border-bottom: solid 1px black;
+}
+
+.titleLogo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  /* margin-bottom: 20px; */
+}
+
+.title {
+  text-align: center;
+}
+
+.navbar {
+  margin-left: 20px;
+  display: flex;
+  gap: 30px;
+  font-weight: bold;
+}
+
+.link {
+  text-decoration: none;
+  color: blue;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/* .logo { */
+  /* margin-top: 10px; */
+  /* margin-right: 10px; */
+  /* width: 100px;
+  height: 100px; */
+/* } */

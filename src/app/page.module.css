@@ -1,0 +1,23 @@
+.main {
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+  text-align: center;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+}
+
+.title {
+  font-size: 50px;
+}
+
+.textSize {
+  font-size: 30px;
+}
