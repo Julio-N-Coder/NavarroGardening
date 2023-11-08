@@ -13,7 +13,7 @@ export default function Contact() {
         <article className={`${styles.center} ${styles.leftContactInfo}`}>
           <span>Contact me through my email</span>
           <span className={styles.info}>Test@test.com</span>
-          <span>Contact me through my Phone number</span>
+          <span>Contact us through my Phone number</span>
           <span className={styles.info}>Phone Number</span>
           <span>Or you can just contact me in this form on the right!</span>
           <span>--&gt;</span>
