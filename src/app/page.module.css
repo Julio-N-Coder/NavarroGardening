@@ -11,7 +11,22 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 80px;
+  margin-top: 35px;
+  gap: 60px;
+}
+
+.services {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.service {
+  width: 45%;
+  border: solid 1px;
+  border-radius: 15px;
+  padding: 5px;
 }
 
 .title {
@@ -20,4 +35,18 @@
 
 .textSize {
   font-size: 30px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.locationPricing {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.location, .pricing {
+  width: 40%;
 }

@@ -4,10 +4,24 @@
   margin: 0;
 }
 
+body {
+  background: linear-gradient(green, 40%, #a6d7b3)
+}
+
 .page-container {
   position: relative;
   min-height: 100vh;
-  padding-bottom: 60px;
+  padding-bottom: 100px;
+}
+
+section {
+  padding-top: 25px;
+  border-top: solid 1px black;
+}
+
+section:first-of-type {
+  padding-top: 0;
+  border-top: none;
 }
 
 .link {
@@ -17,4 +31,17 @@
 
 .link:hover {
   text-decoration: underline;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+li {
+  width: 45%;
+  border: solid 1px;
+  border-radius: 15px;
 }
