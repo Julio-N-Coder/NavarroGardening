@@ -1,10 +1,30 @@
-import React from 'react'
+'use client'
+
+import { useRef, useEffect } from 'react'
 import styles from './page.module.css'
 import Image from 'next/image'
 
 export default function About() {
+  const backgroundRef = useRef();
+
+  useEffect(() => {
+    const header = document.querySelector('.header');
+    const footer = document.querySelector('.footer');
+
+    const resizeObserver = new ResizeObserver(entries => {
+      const headerHeight = header.offsetHeight;
+      const footerHeight = footer.offsetHeight;
+      backgroundRef.current.style.height = `calc(100vh - ${headerHeight}px - ${footerHeight}px)`;
+    });
+
+    resizeObserver.observe(header);
+    resizeObserver.observe(footer);
+
+    return () => resizeObserver.disconnect();
+  }, []);
+
   return (
-    <main className={styles.background}>
+    <div ref={backgroundRef} className={styles.background}>
       <Image className={styles.imgBackground} src='/eco-warrior-princess-TsOeGUwWzWo-unsplash.jpg' layout='fill' alt='Gardening Image' />
       <div className={styles.backgroundOverlay}></div>
       <main className={styles.main}>
@@ -19,6 +39,6 @@ export default function About() {
         <br />
         <span className={styles.textLine}>Thank you for considering Navarro Gardening for your landscaping needs. We look forward to the opportunity to serve you.</span></article>
       </main>
-    </main>
+    </div>
   )
 }

@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <div className={styles.footer}>
+    <div className={`${styles.footer} footer`}>
       <nav className={styles.navbar}>
         <Link className='link' href='/'>Home</Link>
         <Link className='link' href='/about'>About</Link>
