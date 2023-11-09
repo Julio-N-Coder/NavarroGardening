@@ -5,8 +5,8 @@ import Image from 'next/image'
 export default function About() {
   return (
     <main className={styles.background}>
-      <Image className={styles.imgBackground} src='/eco-warrior-princess-TsOeGUwWzWo-unsplash.jpg' layout='fill' alt='Gardening Image' />
-      <div className={styles.backgroundOverlay}></div>
+      {/* Add background image in other branch */}
+      {/* <Image className={styles.imgBackground} src='/eco-warrior-princess-TsOeGUwWzWo-unsplash.jpg' layout='fill' alt='Gardening Image' /> */}
       <main className={styles.main}>
         <h1>About Navarro Gardening</h1>
         <article className={styles.text}><span className={styles.textLine}>Welcome to Navarro Gardening, your local landscaping experts. We are an Individual-owned and operated business based in San Miguel. With over 12 years of experience in the landscaping industry, we take pride in providing top-quality services to our community.</span>
