@@ -1,26 +1,3 @@
-.imgBackground {
-  object-fit: cover;
-  z-index: -2;
-}
-
-.backgroundOverlay {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background-color: black;
-  opacity: 0.5;
-  z-index: -1;
-}
-
-.background {
-  position: fixed;
-  background-color: rgb(46, 172, 46);
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-  z-index: -1;
-}
-
 .main {
   background-color: lightblue;
   max-width: 80%;
@@ -32,6 +9,7 @@
   flex-direction: column;
   gap: 10px;
   border-radius: 10px;
+  overflow: auto;
 }
 
 .text {
@@ -40,3 +18,5 @@
   flex-direction: column;
   padding: 10px;
 }
+
+/* @media (max-height: 600px) {} */

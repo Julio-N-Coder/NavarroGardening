@@ -6,7 +6,7 @@ import logo from '@/../public/navarro-gardening-logo-croped-small.jpg'
 
 export default function Header() {
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} header`}>
       <div className={styles.titleLogo}>
         <h1 className={styles.title}>Navarro Gardening</h1>
         <Link href='/' className={styles.logoContainer}>
