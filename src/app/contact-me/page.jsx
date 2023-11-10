@@ -14,24 +14,23 @@ export default function Contact() {
         <h1 className={styles.leftTitle}>If you would like to contact us, you can either:</h1>
         <article className={`${styles.center} ${styles.leftContactInfo}`}>
           <span>Contact us through our email</span>
-          <span className={styles.info}>navarrogardening@gmail.com</span>
+          <span className={styles.info} id="myemail">navarrogardening@gmail.com</span>
           <span>Contact us through our Phone number</span>
           <span className={styles.info}>(805)-712-4856</span>
-          <span>Or you can just contact us in this form on the right!</span>
-          <span>--&gt;</span>
+          <span>Or you can just contact us in the form here!</span>
         </article>
       </section>
       {/* Form section */}
       <form className={styles.form} action={sendMail} >
         <div className={styles.center}>
           <label className={styles.emailLabel} for='email'>Email</label>
-          <input className={styles.input} id='email' name='email' type='email' placeholder='Email' minlength='3' maxlength='30' required={true} />
+          <input className={styles.input} id='email' name='email' type='email' placeholder='Email' minLength='4' maxLength='35' required={true} />
         </div>
         <div className={styles.center}>
           <label className={styles.messageLabel} for='message'> Enter Message</label>
-          {/* change minlength back to 15 */}
-          <textarea className={styles.message} id='message' name='message' rows='12' cols='50' placeholder='Enter Message Here' minlength='1' maxlength='500' required={true} />
+          <textarea className={styles.message} id='message' name='message' placeholder='Enter Message Here' minLength='15' maxLength='500' required={true} />
         </div>
+        <input type="checkbox" name='honeypot' value="honeypot" style={{ display: 'none' }} />
         <SubmitButton />
       </form>
     </main>

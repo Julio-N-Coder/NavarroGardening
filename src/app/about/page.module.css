@@ -9,7 +9,6 @@
   flex-direction: column;
   gap: 10px;
   border-radius: 10px;
-  overflow: auto;
 }
 
 .text {
@@ -19,4 +18,8 @@
   padding: 10px;
 }
 
-/* @media (max-height: 600px) {} */
+@media (max-width: 350px) {
+  .main {
+    max-width: 90%;
+  }
+}

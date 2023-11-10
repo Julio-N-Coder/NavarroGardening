@@ -1,7 +1,8 @@
 .button {
-  background-color: green;
+  background-color: rgb(19, 146, 19);
   margin-top: 10px;
   font-size: 20px;
+  font-weight: bold;
   padding: 10px;
   border: solid 1px;
   border-radius: 10px;

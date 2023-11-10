@@ -1,4 +1,3 @@
-import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from './header.module.css'
@@ -10,9 +9,8 @@ export default function Header() {
       <div className={styles.titleLogo}>
         <h1 className={styles.title}>Navarro Gardening</h1>
         <Link href='/' className={styles.logoContainer}>
-        <Image className={styles.logo} src={logo} placeholder='blur' width={100} height={100} alt='Navarro Gardening Logo' />
+            <Image className={styles.logo} src={logo} placeholder='blur' width={100} height={100} alt='Navarro Gardening Logo' />
         </Link>
-        {/* <label className={styles.logo}>Place logo here</label> */}
       </div>
       <nav className={styles.navbar}>
         <Link className='link' href='/'>Home</Link>

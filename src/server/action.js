@@ -5,6 +5,8 @@ import validator from 'validator'
 import { redirect } from 'next/navigation'
 
 export default async function sendEmail(formData) {
+  const honeypot = formData.get('honeypot');
+  if (honeypot) throw new Error('Spam detected');
   const email = formData.get('email');
   if (!validator.isEmail(email)) throw new Error('Incorrect Email')
   const message = validator.escape(formData.get('message'));
@@ -36,12 +38,10 @@ export default async function sendEmail(formData) {
       <p>Message: ${message}</p>
       `
     })
-    console.log(info);
-    console.log('email successfully sent!')
 
   } catch (err) {
-    console.log(err);
     error = err;
+    return { message: `Something went wrong with the server` }
   }
   if (!error) redirect(`/sent`);
 }

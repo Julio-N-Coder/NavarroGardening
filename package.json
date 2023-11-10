@@ -10,10 +10,11 @@
   },
   "dependencies": {
     "geist": "^1.0.0",
-    "next": "14.0.1",
+    "next": "^14.0.2",
     "nodemailer": "^6.9.7",
     "react": "^18",
     "react-dom": "^18",
+    "sharp": "^0.32.6",
     "validator": "^13.11.0"
   },
   "devDependencies": {
