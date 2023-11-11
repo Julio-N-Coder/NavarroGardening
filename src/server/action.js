@@ -41,7 +41,8 @@ export default async function sendEmail(formData) {
 
   } catch (err) {
     error = err;
-    return { message: `Something went wrong with the server` }
+    return { message: `Something went wrong with the server Message: ${err.message}` }
   }
   if (!error) redirect(`/sent`);
+  return { message: `Message Sent` }
 }
