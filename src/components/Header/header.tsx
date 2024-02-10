@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "./header.module.css";
 import logo from "@/../public/navarro-gardening-logo-croped-small.jpg";
 import React from "react";
+import ButtonList from "@/components/Button/ButtonList";
 
 export default function Header() {
   return (
@@ -20,17 +21,7 @@ export default function Header() {
           />
         </Link>
       </div>
-      <nav className={`${styles.navbar}`}>
-        <Link className="link" href="/">
-          Home
-        </Link>
-        <Link className="link" href="/about">
-          About
-        </Link>
-        <Link className="link" href="/contact-me">
-          Contact Me
-        </Link>
-      </nav>
+      <ButtonList />
     </header>
   );
 }
