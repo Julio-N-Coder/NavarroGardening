@@ -38,3 +38,7 @@ next-env.d.ts
 # docker files
 Dockerfile
 .dockerignore
+
+# amplify
+.amplify
+amplifyconfiguration*
