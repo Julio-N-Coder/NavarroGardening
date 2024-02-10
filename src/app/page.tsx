@@ -8,7 +8,7 @@ export default function Home() {
       <section
         className={`${styles.introduction} ${styles.center} ${styles.textSize}`}
       >
-        <h2 className={`${styles.title}`}>
+        <h2 className={`${styles.title} font-bold`}>
           Welcome to Navarro Gardening&apos;s Website, Your Local Landscaping
           Experts!
         </h2>
@@ -26,7 +26,7 @@ export default function Home() {
       <section
         className={`${styles.servicesContainer} ${styles.center} ${styles.textSize}`}
       >
-        <h2 className={styles.title}>Services</h2>
+        <h2 className={`${styles.title} font-bold`}>Services</h2>
         <article>
           At Navarro Gardening, we offer a comprehensive range of yard services
           designed to keep your outdoor spaces looking their best. Our team of
@@ -69,15 +69,15 @@ export default function Home() {
       <section className={`${styles.locationPricing} ${styles.textSize}`}>
         {/* location section */}
         <div className={styles.location}>
-          <h2>Service Location</h2>
+          <h2 className={`font-bold text-5xl`}>Service Location</h2>
           <article>
             We Serve in the North County SLO area. More specifically, anywere
             around the Atascadero and San Miguel area
           </article>
         </div>
         {/* Pricing section */}
-        <div className={styles.pricing}>
-          <h2 className={styles.title}>Pricing</h2>
+        <div className={`${styles.pricing}`}>
+          <h2 className={`${styles.title} font-bold`}>Pricing</h2>
           <article className={styles.article}>
             We charge $65 - $80 an hour depending on services
           </article>

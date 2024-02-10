@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <header className={`${styles.header} header`}>
       <div className={styles.titleLogo}>
-        <h1 className={styles.title}>Navarro Gardening</h1>
+        <h1 className={`${styles.title} font-bold`}>Navarro Gardening</h1>
         <Link href="/" className={styles.logoContainer}>
           <Image
             className={styles.logo}
@@ -20,7 +20,7 @@ export default function Header() {
           />
         </Link>
       </div>
-      <nav className={styles.navbar}>
+      <nav className={`${styles.navbar}`}>
         <Link className="link" href="/">
           Home
         </Link>

@@ -5,7 +5,7 @@ export default function About() {
   return (
     // add background image in imgbackground branch
     <main className={styles.main}>
-      <h1>About Navarro Gardening</h1>
+      <h1 className={`font-bold text-5xl`}>About Navarro Gardening</h1>
       <article className={styles.text}>
         <span className={styles.textLine}>
           Welcome to Navarro Gardening, your local landscaping experts. We are
