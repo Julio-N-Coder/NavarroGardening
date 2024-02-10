@@ -51,7 +51,7 @@ export default function Contact() {
               name="message"
               placeholder="Enter Message Here"
               minLength={15}
-              maxLength={500}
+              maxLength={1000}
               required={true}
             />
           </div>

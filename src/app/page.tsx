@@ -1,6 +1,7 @@
 import styles from "./page.module.css";
 import Link from "next/link";
 import React from "react";
+import { Button } from "@/components/Button/button";
 
 export default function Home() {
   return (
@@ -17,9 +18,9 @@ export default function Home() {
           over 12 years of experience in the SLO County area, we&apos;re
           committed to delivering top-quality landscaping services tailored to
           your needs. Want to contact us quickly, just click here --&gt;{" "}
-          <Link className="link" href="/contact-me">
-            Contact Me
-          </Link>
+          <Button asChild className="active:bg-green-500">
+            <Link href="/contact-me">Contact Me</Link>
+          </Button>
         </article>
       </section>
       {/* Services Section */}

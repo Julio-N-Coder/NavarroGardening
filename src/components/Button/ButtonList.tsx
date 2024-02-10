@@ -10,35 +10,33 @@ export default function ButtonList() {
 
   return (
     <div className="inline-block ml-4 bg-green-900 p-1 rounded-md ">
-      <Link className="link" href="/">
-        <Button
-          className={`${
-            pathname === "/" && "bg-green-400 text-black hover:bg-green-300"
-          }`}
-        >
-          Home
-        </Button>
-      </Link>
-      <Link className="link" href="/about">
-        <Button
-          className={`${
-            pathname === "/about" &&
-            "bg-green-400 text-black hover:bg-green-300"
-          }`}
-        >
-          About
-        </Button>
-      </Link>
-      <Link className="link" href="/contact-me">
-        <Button
-          className={`${
-            pathname === "/contact-me" &&
-            "bg-green-400 text-black hover:bg-green-300"
-          }`}
-        >
-          Contact Me
-        </Button>
-      </Link>
+      <Button
+        asChild
+        className={`${
+          pathname === "/" && "bg-green-400 text-black hover:bg-green-300"
+        }`}
+      >
+        <Link href="/">Home</Link>
+      </Button>
+
+      <Button
+        asChild
+        className={`${
+          pathname === "/about" && "bg-green-400 text-black hover:bg-green-300"
+        }`}
+      >
+        <Link href="/about">About</Link>
+      </Button>
+
+      <Button
+        asChild
+        className={`${
+          pathname === "/contact-me" &&
+          "bg-green-400 text-black hover:bg-green-300"
+        }`}
+      >
+        <Link href="/contact-me">Contact Me</Link>
+      </Button>
     </div>
   );
 }
