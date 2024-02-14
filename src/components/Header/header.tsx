@@ -1,9 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./header.module.css";
 import logo from "@/../public/navarro-gardening-logo-croped-small.jpg";
 import React from "react";
 import ButtonList from "@/components/Button/ButtonList";
+import { imageLoader } from "@/loader";
 
 export default function Header() {
   return (
@@ -12,6 +15,7 @@ export default function Header() {
         <h1 className={`${styles.title} font-bold`}>Navarro Gardening</h1>
         <Link href="/" className={styles.logoContainer}>
           <Image
+            loader={imageLoader}
             className={styles.logo}
             src={logo}
             placeholder="blur"
