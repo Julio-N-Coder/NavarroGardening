@@ -1,7 +1,8 @@
-import express, { Request, Response } from "express";
-import "dotenv/config";
-import nodemailer from "nodemailer";
+import express from "express";
 import cors from "cors";
+import "dotenv/config";
+import { Request, Response } from "express";
+import nodemailer from "nodemailer";
 import { isEmail, messageLength } from "../src/lib/schema";
 const app = express();
 
@@ -13,19 +14,17 @@ app.use(
 );
 
 // this will be hosted on lambda so will be configured to do so. nodejs is
-// just to replicate how the lambda function woul work and for testing
+// just to replicate how the lambda function would work and for testing
 app.post("/lambda", async (req: Request, res: Response) => {
-  const { honeypot } = req.body;
-
-  if (honeypot) {
-    res.status(400).send("Spam Detected");
-  }
-
-  const { email, message } = req.body;
-
   try {
-    const parsedEmail = isEmail.parse(email);
-    const parsedMessage = messageLength.parse(message);
+    const { email, message, honeypot } = req.body;
+
+    if (honeypot) {
+      res.status(400).send("Spam Detected");
+    }
+
+    isEmail.parse(email);
+    messageLength.parse(message);
 
     // Creating nodmailer Transporter. auth has any for now. was getting erros until then
     const transporter = nodemailer.createTransport({
@@ -54,13 +53,11 @@ app.post("/lambda", async (req: Request, res: Response) => {
         `,
     });
     console.log(info);
-    res.status(200).json({ success: true });
+    return res.status(200).json({ success: true });
   } catch (error: any) {
-    // console.log(error);
-
     if ("format" in error) {
       console.log(error.format()._errors[0]);
-      res
+      return res
         .status(400)
         .json({ success: false, error: error.format()._errors[0] });
     } else {

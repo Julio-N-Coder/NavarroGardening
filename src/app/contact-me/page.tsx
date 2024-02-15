@@ -17,7 +17,7 @@ export default function Contact() {
     showError: false,
     message: "",
   });
-  const [serverError, setServerError] = useState({
+  const [generalError, setGeneralError] = useState({
     showError: false,
     message: "",
   });
@@ -36,7 +36,6 @@ export default function Contact() {
 
     // client checks
     if (honeypot) {
-      console.log("test");
       e.target[0].value = "";
       e.target[1].value = "";
       e.target[2].checked = false;
@@ -50,38 +49,58 @@ export default function Contact() {
         message: "Invalid Email",
       });
       return;
-    } else if (!parsedMessage.success) {
+    } else {
+      setPending(false);
+      setEmailError({ showError: false, message: "" });
+    }
+
+    if (!parsedMessage.success) {
       setPending(false);
       setMessageError({
         showError: true,
         message: "Message to big or small",
       });
       return;
+    } else {
+      setPending(false);
+      setMessageError({ showError: false, message: "" });
     }
 
     // server checks
-    const response = await fetch("http://localhost:3001/lambda", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, message, honeypot }),
-    });
+    const response = await fetch(
+      "https://3pvtrjehri.execute-api.us-west-1.amazonaws.com/prod/email-me",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, message, honeypot }),
+      }
+    );
 
     const data: { success: boolean; error: string } = await response.json();
-    // console.log(data);
 
+    // checks in order if stuccessful, if failed fetch, if server error
     if (data.success) {
       router.push("/sent");
       return;
+    } else if (!data) {
+      setPending(false);
+      setGeneralError({
+        showError: true,
+        message:
+          "There Seems to be a problem with The page. We are sorry for the inconvenience. We will try to get this fixed as soon as possible",
+      });
+      return;
     } else if (data.error === "Server Error") {
       setPending(false);
-      setServerError({
+      setGeneralError({
         showError: true,
         message:
           "There Seems to be a problem with our server. We are sorry for the inconvenience. We will try to get this fixed as soon as possible",
       });
+      return;
     }
 
-    // first argument checks if email or message.
+    // first argument checks if email or message. pass state updater and error to display message
     checkMessageOrEmail("Email", setEmailError, data.error);
     checkMessageOrEmail("Message", setMessageError, data.error);
     setPending(false);
@@ -110,11 +129,11 @@ export default function Contact() {
         {/* Form section */}
         <form className={styles.form} onSubmit={formSubmition}>
           <div className={styles.center}>
-            {serverError.showError && (
+            {generalError.showError && (
               <div
                 className={`max-w-64 bg-red-300 rounded-md bg-opacity-70 text-center font-bold`}
               >
-                {serverError.message}
+                {generalError.message}
               </div>
             )}
             {/* email label and error box div */}

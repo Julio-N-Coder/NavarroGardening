@@ -1,0 +1,19 @@
+{
+  "name": "lambda-function",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemailer": "^6.9.9",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/nodemailer": "^6.4.14"
+  }
+}

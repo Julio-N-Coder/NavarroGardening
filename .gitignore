@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /lambda-server/node_modules
+/lambda-server/lambda-function/node_modules
 /node-static-server-test/node_modules
 /.pnp
 .pnp.js
@@ -10,6 +11,7 @@
 
 # testing
 /coverage
+/lambda-server/coverage
 
 # next.js
 /.next/
@@ -32,6 +34,7 @@ yarn-error.log*
 # local env files
 .env*.local
 lambda-server/.env
+lambda-server/lambda-function/.env
 
 # vercel
 .vercel
@@ -47,3 +50,6 @@ Dockerfile
 # amplify
 .amplify
 amplifyconfiguration*
+
+# Extra
+lambda-server/lambda-function/pack-lambda
