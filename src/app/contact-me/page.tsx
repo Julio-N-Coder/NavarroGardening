@@ -26,6 +26,21 @@ export default function Contact() {
   // gets form values and sends to lambda
   const formSubmition = async (e: any) => {
     e.preventDefault();
+
+    // resets errors and checks again
+    setGeneralError({
+      showError: false,
+      message: "",
+    });
+    setMessageError({
+      showError: false,
+      message: "",
+    });
+    setEmailError({
+      showError: false,
+      message: "",
+    });
+
     setPending(true);
     const email = e.target[0].value;
     const message = e.target[1].value;
@@ -42,47 +57,59 @@ export default function Contact() {
       router.push("/");
       return;
     }
-    if (!parsedEmail.success) {
-      setPending(false);
-      setEmailError({
-        showError: true,
-        message: "Invalid Email",
-      });
-      return;
-    } else {
-      setPending(false);
-      setEmailError({ showError: false, message: "" });
-    }
 
-    if (!parsedMessage.success) {
-      setPending(false);
-      setMessageError({
-        showError: true,
-        message: "Message to big or small",
-      });
-      return;
-    } else {
-      setPending(false);
-      setMessageError({ showError: false, message: "" });
-    }
-
-    // server checks
-    const response = await fetch(
-      "https://3pvtrjehri.execute-api.us-west-1.amazonaws.com/prod/email-me",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, message, honeypot }),
+    if (!parsedEmail.success || !parsedMessage.success) {
+      if (!parsedEmail.success) {
+        setEmailError({
+          showError: true,
+          message: "Invalid Email",
+        });
       }
-    );
-
-    const data: { success: boolean; error: string } = await response.json();
-
-    // checks in order if stuccessful, if failed fetch, if server error
-    if (data.success) {
-      router.push("/sent");
+      if (!parsedMessage.success) {
+        if ("error" in parsedMessage) {
+          setMessageError({
+            showError: true,
+            message: parsedMessage.error.format()._errors[0],
+          });
+        }
+      }
+      setPending(false);
       return;
-    } else if (!data) {
+    }
+
+    // fetching from server
+    try {
+      const response = await fetch(
+        "https://3pvtrjehri.execute-api.us-west-1.amazonaws.com/prod/email-me",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, message, honeypot }),
+        }
+      );
+
+      const data: { success: boolean; error: string } = await response.json();
+
+      // server checks in order if stuccessful, if failed fetch, if server error
+      if (data.success) {
+        router.push("/sent");
+        return;
+      } else if (data.error === "Server Error") {
+        setPending(false);
+        setGeneralError({
+          showError: true,
+          message:
+            "There Seems to be a problem with our server. We are sorry for the inconvenience. We will try to get this fixed as soon as possible",
+        });
+        return;
+      }
+
+      // first argument checks if email or message. pass state updater and error to display message
+      checkMessageOrEmail("Email", setEmailError, data.error);
+      checkMessageOrEmail("Message", setMessageError, data.error);
+      setPending(false);
+      return;
+    } catch (error) {
       setPending(false);
       setGeneralError({
         showError: true,
@@ -90,21 +117,7 @@ export default function Contact() {
           "There Seems to be a problem with The page. We are sorry for the inconvenience. We will try to get this fixed as soon as possible",
       });
       return;
-    } else if (data.error === "Server Error") {
-      setPending(false);
-      setGeneralError({
-        showError: true,
-        message:
-          "There Seems to be a problem with our server. We are sorry for the inconvenience. We will try to get this fixed as soon as possible",
-      });
-      return;
     }
-
-    // first argument checks if email or message. pass state updater and error to display message
-    checkMessageOrEmail("Email", setEmailError, data.error);
-    checkMessageOrEmail("Message", setMessageError, data.error);
-    setPending(false);
-    return;
   };
 
   return (
@@ -166,7 +179,7 @@ export default function Contact() {
             <div
               className={`${
                 messageError.showError
-                  ? "bg-red-400 rounded-md flex flex-col items-center gap-x-2 bg-opacity-80 shadow-xl shadow-red-400"
+                  ? "bg-red-400 rounded-md flex flex-col items-center gap-x-2 bg-opacity-80 shadow shadow-red-400"
                   : ""
               }`}
             >
