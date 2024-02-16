@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Button } from "@/components/Button/button";
+import { Button } from "@/components/Buttons/button";
 
 import React from "react";
 

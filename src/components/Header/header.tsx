@@ -5,7 +5,7 @@ import Image from "next/image";
 import styles from "./header.module.css";
 import logo from "@/../public/navarro-gardening-logo-croped-small.jpg";
 import React from "react";
-import ButtonList from "@/components/Button/ButtonList";
+import ButtonList from "@/components/Buttons/ButtonList";
 import { imageLoader } from "@/loader";
 
 export default function Header() {

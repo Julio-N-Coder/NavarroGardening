@@ -1,7 +1,7 @@
 import styles from "./page.module.css";
 import Link from "next/link";
 import React from "react";
-import { Button } from "@/components/Button/button";
+import { Button } from "@/components/Buttons/button";
 
 export default function Home() {
   return (

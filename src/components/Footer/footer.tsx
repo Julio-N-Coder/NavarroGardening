@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./footer.module.css";
 import Link from "next/link";
-import ButtonList from "@/components/Button/ButtonList";
+import ButtonList from "@/components/Buttons/ButtonList";
 
 export default function Footer() {
   return (

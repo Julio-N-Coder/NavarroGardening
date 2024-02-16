@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import React from "react";
-import { Button } from "@/components/Button/button";
+import { Button } from "@/components/Buttons/button";
 import { usePathname } from "next/navigation";
 
 export default function ButtonList() {
