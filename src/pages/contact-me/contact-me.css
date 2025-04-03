@@ -1,0 +1,131 @@
+.contact-title {
+  margin-top: 30px;
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.contactInfo,
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.leftTitle {
+  font-size: 35px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.contact-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-main {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 50px;
+  gap: 10px;
+}
+
+.leftContactInfo {
+  text-align: center;
+  font-size: 30px;
+  gap: 20px;
+}
+
+.contact-info {
+  position: relative;
+  font-weight: bold;
+  bottom: 20px;
+}
+
+.emailLabel,
+.messageLabel {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.input {
+  height: 35px;
+  width: 350px;
+}
+
+.input,
+.message {
+  border-radius: 5px;
+  border: solid 1px;
+  box-shadow: 0px 0px 5px;
+  font-size: 20px;
+  font-family: "Source Sans Pro", sans-serif;
+  padding: 5px;
+}
+
+.message {
+  width: 527px;
+  height: 300px;
+}
+
+@media (max-width: 1360px) {
+  .contact-main {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .contact-main {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 550px) {
+  .form {
+    width: 100%;
+  }
+  .contact-center {
+    width: 100%;
+  }
+  .message {
+    width: 95%;
+  }
+}
+
+@media (max-width: 450px) {
+  .leftTitle {
+    font-size: 30px;
+  }
+
+  .leftContactInfo {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 370px) {
+  .contact-title {
+    font-size: 40px;
+  }
+  .leftTitle {
+    font-size: 25px;
+  }
+  .leftContactInfo {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 370px) {
+  .input {
+    font-size: 17px;
+    height: 35px;
+    width: 100%;
+  }
+}

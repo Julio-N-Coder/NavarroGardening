@@ -1,0 +1,88 @@
+@import "tailwindcss";
+@theme {
+  --breakpoint-xs: 450px;
+}
+@plugin "daisyui" {
+  themes: light --default;
+}
+
+body {
+  background: linear-gradient(green, 40%, #a6d7b3);
+}
+
+.page-container {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+section {
+  padding-top: 25px;
+  border-top: solid 1px black;
+}
+
+section:first-of-type {
+  padding-top: 0;
+  border-top: none;
+}
+
+.link {
+  text-decoration: none;
+  color: blue;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.errorMain {
+  display: flex;
+  max-width: 95%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 60px;
+  text-align: center;
+}
+
+.errorTitle {
+  font-size: 70px;
+}
+
+.errorSentence {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.errorButton {
+  background-color: rgb(19, 146, 19);
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 10px;
+  border: solid 1px;
+  padding: 10px;
+  box-shadow: 0px 0px 5px;
+  transition: all 0.3s;
+}
+
+.errorButton:hover {
+  background-color: rgb(3, 182, 3);
+}
+
+@media (max-width: 370px) {
+  .errorTitle {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 350px) {
+  #myemail {
+    font-size: 17px;
+  }
+}
+
+.header-nav-buttons-base {
+  @apply py-1 h-10 font-bold text-center text-lg xs:text-xl sm:text-2xl rounded-sm;
+}

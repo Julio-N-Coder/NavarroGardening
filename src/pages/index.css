@@ -1,0 +1,121 @@
+.main {
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+  text-align: center;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 35px;
+  gap: 60px;
+}
+
+.services {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.service {
+  width: 45%;
+  background-color: rgb(14, 131, 14);
+  border: solid 1px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 5px;
+  padding: 5px;
+}
+
+.title {
+  font-size: 50px;
+}
+
+.textSize {
+  font-size: 30px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.locationPricing {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.location,
+.pricing {
+  width: 40%;
+}
+
+@media (max-width: 740px) {
+  .title {
+    font-size: 40px;
+  }
+
+  .textSize {
+    font-size: 20px;
+  }
+
+  .location,
+  .pricing {
+    width: 45%;
+  }
+}
+
+@media (max-width: 600px) or (max-height: 500px) {
+  .title {
+    font-size: 30px;
+  }
+
+  .service {
+    width: 80%;
+  }
+
+  .locationPricing {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .location,
+  .pricing {
+    width: 80%;
+  }
+
+  .center {
+    gap: 25px;
+  }
+}
+
+@media (max-width: 350px) or (max-height: 450px) {
+  .main {
+    max-width: 95%;
+  }
+
+  .title {
+    font-size: 25px;
+  }
+
+  .textSize {
+    font-size: 17px;
+  }
+}
+
+@media (max-height: 450px) {
+  .textSize {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 300px) {
+  .title {
+    font-size: 22px;
+  }
+}

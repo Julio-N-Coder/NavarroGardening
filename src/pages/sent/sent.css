@@ -1,0 +1,19 @@
+.sent-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 100px;
+}
+
+.sent-title {
+  font-size: 50px;
+}
+
+.sent-text:first-of-type {
+  margin-top: 20px;
+}
+
+.sent-text {
+  font-size: 30px;
+}
